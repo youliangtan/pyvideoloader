@@ -3,6 +3,7 @@
 Simple Impl to accel video data loader 
 
 > My own experiment to identify the best way for efficient video data loader in PyTorch
+
 > WIP
 
 ## Methods
@@ -10,17 +11,24 @@ Simple Impl to accel video data loader
 This mainly focus on decoding compressed video data (e.g. mp4)
 
 1. Native CPU based dataloader (with pyav)
+    - run `python video_loader.py --cpu_decoder`
 2. GPU accelerated dataloader (with pyav)
+    - run `python video_loader.py`
 3. VQGAN based dataloader (with pytorch)
     - Use [Open-MAGVIT2](https://github.com/TencentARC/Open-MAGVIT2) with provided pytorch checkpoint
+    - Download Checkpoints: https://huggingface.co/TencentARC/Open-MAGVIT2/tree/main
+    - run `python video_encoder.py` (Compression factor of 42)
 
-## Installation 
+
+## Installation of PyAV with GPU acceleration
 
 Installation of pyav with gpu acceleration is a bit tricky. Here is the steps to install it:
 
 https://www.cyberciti.biz/faq/how-to-install-ffmpeg-with-nvidia-gpu-acceleration-on-linux/
 
 NOTE: we need to switch branch to `release/6.1` to have the correct version of ffmpeg, to be compatible with pyav compilation
+
+last run `pip install av --no-binary av` to install pyav with custom ffmpeg
 
 ## Troubleshooting
 
